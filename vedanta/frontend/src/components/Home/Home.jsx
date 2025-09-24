@@ -15,21 +15,22 @@ const Home = () => {
   const [stats, setStats] = useState([]);
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Stats.json"
+" http://localhost:5000/api/stats "
     )
       .then((res) => res.json())
-      .then((data) => setStats(data));
+      .then((data) => setStats(data))
+       .catch((err) => console.error("Error fetching stats:", err));
   }, []);
 
-  const [programs, setPrograms] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Program.json"
-    )
-      .then((res) => res.json())
-      .then((data) => setPrograms(data))
-      .catch((err) => console.log(err));
-  }, []);
+  // const [programs, setPrograms] = useState([]);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Program.json"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setPrograms(data))
+  //     .catch((err) => console.log(err));
+  // }, []);
   return (
     <>
       <div className={Styles.main}>
@@ -70,9 +71,14 @@ const Home = () => {
         </div>
       </div>
       <div className={Styles.cardContainer}>
-        {stats.map((stat) => (
-          <div className={Styles.statCard} key={stat.id}>
-            <div className={Styles.icon}>{iconMap[stat.icon]}</div>
+        {stats.map((stat) => {
+          const icon = iconMap[stat.icon] ||<FaStar size={30} color="var(--color-primary)"/>;
+          return(
+
+          <div className={Styles.statCard} key={stat._id || stat.id}>
+            <div className={Styles.icon}>
+              {icon}
+              </div>
             <div className={Styles.data}>
               <h2>
                 <CountUp
@@ -86,9 +92,10 @@ const Home = () => {
               <p>{stat.label}</p>
             </div>
           </div>
-        ))}
+          );
+})}
       </div>
-      <div className={Styles.program}>
+      {/* <div className={Styles.program}>
         <div className={Styles.text}>
           <h2>Our Training Programs</h2>
           <p>
@@ -111,7 +118,7 @@ const Home = () => {
           ))}
         </div>
         <button onClick={()=> navigate("/programs")}>View All Programs &#10140;</button>
-      </div>
+      </div> */}
     </>
   );
 };
