@@ -15,22 +15,21 @@ const About = () => {
       FaAward: <FaAward size={30} color="var(--color-custom)" />,
       FaStar: <FaStar size={30} color="var(--color-custom)" />,
     };
-  const [cards, setCards] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/master/MissionVision.json"
-    )
-      .then((res) => res.json())
-      .then((data) => setCards(data))
-      .catch((err) => console.error(err));
-  }, []);
+  // const [cards, setCards] = useState([]);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/master/MissionVision.json"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setCards(data))
+  //     .catch((err) => console.error(err));
+  // }, []);
   const [stats, setStats] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Stats.json"
-    )
+    fetch("http://localhost:5000/api/stats"    )
       .then((res) => res.json())
-      .then((data) => setStats(data));
+      .then((data) => setStats(data))
+      .catch((err)=> console.error("Error fetching stats:", err));
   }, []);
   return (
     <>
@@ -64,7 +63,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className={Styles.cardsContainer}>
+      {/* <div className={Styles.cardsContainer}>
         {cards.map((item) => {
           const IconComponent = iconMap[item.icon];
           return (
@@ -84,7 +83,7 @@ const About = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
       <div className={Styles.Achievements}>
         <div className={Styles.textcontainer}>
         <h2>Our Achievements</h2>
@@ -92,9 +91,13 @@ const About = () => {
         </div>
         <div className={Styles.Stats}>
 
-        {stats.map((stat) => (
-          <div className={Styles.statCard} key={stat.id}>
-            <div className={Styles.icon}>{icons[stat.icon]}</div>
+        {stats.map((stat) => {
+          const IconComponent = icons[stat.icon];
+          return(
+            <div className={Styles.statCard} key={stat._id}>
+            <div className={Styles.icon}>
+              {IconComponent?IconComponent:<FaUsers size={30} color="var(--color-custom)"/>}
+              </div>
             <div className={Styles.data}>
               <h2>
                 <CountUp
@@ -108,7 +111,9 @@ const About = () => {
               <p>{stat.label}</p>
             </div>
           </div>
-        ))}
+          );
+          
+})}
         </div>
       </div>
     </>
