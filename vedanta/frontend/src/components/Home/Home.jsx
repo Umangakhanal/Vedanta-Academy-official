@@ -22,15 +22,14 @@ const Home = () => {
        .catch((err) => console.error("Error fetching stats:", err));
   }, []);
 
-  // const [programs, setPrograms] = useState([]);
-  // useEffect(() => {
-  //   fetch(
-  //     "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Program.json"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setPrograms(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  const [programs, setPrograms] = useState([]);
+  useEffect(() => {
+    fetch(
+"http://localhost:5000/api/programs"    )
+      .then((res) => res.json())
+      .then((data) => setPrograms(data))
+      .catch((err) => console.log("Error fetching programs:",err));
+  }, []);
   return (
     <>
       <div className={Styles.main}>
@@ -95,7 +94,8 @@ const Home = () => {
           );
 })}
       </div>
-      {/* <div className={Styles.program}>
+      {/* Program section */}
+      <div className={Styles.program}>
         <div className={Styles.text}>
           <h2>Our Training Programs</h2>
           <p>
@@ -106,19 +106,19 @@ const Home = () => {
         <div className={Styles.cardsContainer}>
           {programs.map((program) => (
             <Card
-              key={program.id}
+              key={program._id || program.id}
               title={program.title}
               shortDesc={program.shortDesc}
               fullDesc={program.fullDesc}
               duration={program.duration}
-              image={program.image}
+              image={program.imageUrl}
               showFull={false}
               buttonText={'Learn More →'}
             />
           ))}
         </div>
         <button onClick={()=> navigate("/programs")}>View All Programs &#10140;</button>
-      </div> */}
+      </div>
     </>
   );
 };

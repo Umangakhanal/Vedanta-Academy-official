@@ -4,14 +4,14 @@ import cors from "cors";
 import {client } from './sanity.js';
 import dotenv from 'dotenv';
 import statsRouter from './stats.js';
-
+import programsRouter from './programs.js';
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api',galleryRouter);
 app.use('/api', statsRouter);
-
+app.use('/api',programsRouter);
 app.post("/api/contact", async (req, res) => {
   try {
     const formData = req.body;
