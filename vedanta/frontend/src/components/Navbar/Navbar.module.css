@@ -1,0 +1,85 @@
+@import './../../index.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 70px;
+}
+.Navbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--color-custom);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.logo {
+  width: 85px;
+  height: 70px;
+  /* border-radius: 50%; */
+  margin-left: 15px;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 50%; */
+}
+.navlinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.navlinks ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 30px;
+}
+
+.navlinks a {
+  text-decoration: none;
+  /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+  /* color: var(--color-text); */
+}
+.link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.activeLink {
+  color: var(--color-primary);
+  text-decoration: underline !important;
+}
+
+.navButton {
+  width: 120px;
+  height: 40px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  width: 100px;
+  height: 90%;
+  border-radius: 5px;
+  /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-custom);
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+}

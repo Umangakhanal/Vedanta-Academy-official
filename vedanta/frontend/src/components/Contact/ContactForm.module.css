@@ -1,0 +1,80 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-custom);
+}
+.title{
+  color: var(--color-primary);
+}
+.contact{
+  color: var(--color-text);
+}
+.formGroup p , label , select, option{
+  color: var(--color-text);
+}
+.formGroup span{
+  color: red;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  width: 50%;
+}
+.message textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 300px;
+}
+.message span{
+  color: red;
+}
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+}
+.input:focus {
+  border-color: var(--color-primary);
+}
+.errorInput {
+  border-color: red;
+}
+.error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: red;
+  margin-top: 4px;
+}
+.SubmitBtn {
+  background-color: var(--color-primary);
+  color: var(--color-custom);
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.SubmitBtn:hover {
+  background-color: var(--color-secondary);
+}

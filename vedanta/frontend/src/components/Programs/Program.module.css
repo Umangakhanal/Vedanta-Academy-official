@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  margin-top: 20px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-primary);
+  align-items: center;
+}
+.textcontainer {
+  text-align: center;
+  color: var(--color-custom);
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.programDescription {
+  background-color: var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+.programDescription h3 {
+  color: var(--color-primary);
+}
+.programDescription p {
+  color: var(--color-text);
+}
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 500px); /* 2 cards per row */
+  gap: 2.5rem; /* space between cards */
+  padding: 1rem;
+  margin: auto;
+}
+.choose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-accent);
+}
+.choose h3, h4 {
+  color: var(--color-primary);
+}
+.choose p {
+  color: var(--color-text);
+}
+.infoCardContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 5px;
+  background-color: var(--color-accent);
+}
+.infoCard {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  text-align: center;
+  gap: 10px;
+  background-color: var(--color-accent);
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon1 {
+  background-color: var(--color-primary);
+}
+.icon2 {
+  background-color: var(--color-secondary);
+}
+.icon3 {
+  background-color: green;
+}
+.icon4 {
+  background-color: purple;
+}

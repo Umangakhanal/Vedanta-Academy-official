@@ -1,0 +1,195 @@
+@import "./../../index.css";
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-primary);
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-primary);
+  display: flex;
+}
+.textcontainer span {
+  color: var(--color-secondary);
+}
+.textcontainer h1 {
+  /* font-size:48px;
+    font-weight: 800; */
+  color: var(--color-custom);
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.textcontainer {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 45%;
+}
+.textcontainer p {
+  /* font-size: 24px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+  color: var(--color-custom);
+}
+.card {
+  height: 300px;
+  border-radius: 30px;
+  padding: 40px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  margin: auto;
+  background-color: var(--color-card);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.card h3 {
+  margin-top: 20px;
+  /* font-size: xx-large;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif; */
+  color: var(--color-custom);
+}
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card li {
+  color: var(--color-custom);
+  /* font-size: 24px;
+    font-weight: 300; */
+  list-style: none;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+.buttons {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  gap: 30px;
+  padding-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+.btn1 {
+  width: 180px;
+  height: 90%;
+  border: 1px solid var(--color-secondary);
+  border-radius: 5px;
+  background-color: var(--color-secondary);
+  color: var(--color-custom);
+  /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn1:hover {
+  transform: scale(1.05);
+}
+.btn2 {
+  width: 120px;
+  height: 90%;
+  border-radius: 5px;
+  /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+  background-color: transparent;
+  border: 1px solid var(--color-custom);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn2:hover {
+  background-color: var(--color-custom);
+  transform: scale(1.05);
+  color: var(--color-primaryg);
+}
+.cardContainer {
+  display: flex;
+  height: 300px;
+  background-color: var(--color-accent);
+  justify-content: space-around;
+  align-items: center;
+}
+.statCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+.statCard:hover {
+  transform: scale(1.05);
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+}
+.program {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px;
+  align-items: center;
+}
+.text {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+/* .text h2{
+    font-size: 38px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+.text p {
+  /* font-size: 24px;
+    font-weight: 300;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; */
+  text-align: center;
+}
+
+button {
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-custom);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 1.5rem; /* space between cards */
+  padding: 1rem;
+}

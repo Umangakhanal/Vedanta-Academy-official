@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  background-color: var(--color-custom);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  padding: 20px;
+}
+.card h2{
+    color: var(--color-primary);
+}
+.item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-custom);
+  font-size: x-large;
+}
+.textArea h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.textArea p {
+  color: var(--color-text);
+}

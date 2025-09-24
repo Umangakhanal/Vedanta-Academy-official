@@ -1,0 +1,125 @@
+@import './../../index.css';
+.main{
+    background-color: var(--color-heading);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.top{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.left{
+    margin-left: 40px;
+    margin-top: 50px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.logoContainer{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo{
+    background-color: var(--color-secondary);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.left, .mid, .right h2{
+    /* font-size: 24px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; */
+    color: var(--color-custom);
+}
+.left, .mid, .right p{
+    /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+    color: var(--color-custom);
+}
+.mid{
+    margin-top: 50px;
+    width: 25%;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin-left: 30px;
+}
+.links ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s;
+}
+.links ul :hover{
+    color: var(--color-secondary);
+}
+.links li{
+    list-style: none;
+}
+.links a{
+    text-decoration: none;
+    color: var(--color-custom);
+}
+
+.right{
+    width: 25%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 40px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: baseline;
+}
+.contact{
+    display: flex;
+    gap: 10px;
+
+}
+.bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    height: 100px;
+
+}
+.bottom p{
+    /* font-size: 16px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif; */
+    color: var(--color-custom) ;
+    transition: 0.3s;
+}
+.bottom p:hover{
+    color: var(--color-secondary);
+}
+.line{
+    width: 90%;
+    border: 1px solid var(--color-text);
+    margin-top: 30px;
+    
+}

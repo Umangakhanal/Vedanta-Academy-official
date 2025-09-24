@@ -1,0 +1,41 @@
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background-color: var(--color-primary);
+}
+.textContainer {
+  color: var(--color-custom);
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+}
+.textContainer p{
+  color: var(--color-custom);
+}
+.formpart{
+  background-color: var(--color-accent);
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.contactForm{
+  width: 60%;
+  
+}
+.contactInfo{
+  width: 35%;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+}
