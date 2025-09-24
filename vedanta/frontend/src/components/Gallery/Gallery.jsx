@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { client, urlFor } from "../../sanity";
 import Styles from "./Gallery.module.css";
 import FsLightbox from "fslightbox-react";
 const Gallery = () => {
@@ -7,8 +6,10 @@ const Gallery = () => {
   const [toggler, setToggler] = useState(0);
   const[slide, setSlide]=useState(1);
   useEffect(() => {
-    const query = `*[_type == "galleryImage"]{ _id, title, image}`;
-    client.fetch(query).then((data) => setImages(data));
+    fetch('http://localhost:5000/api/gallery')
+    .then((res)=> res.json())
+    .then((data)=> setImages(data))
+    .catch((err)=> console.error("Error fetching gallery:",err));
   }, []);
 
   const openLightbox = (index) => {
@@ -27,7 +28,7 @@ const Gallery = () => {
             onClick={() => openLightbox(index)}
           >
             <img
-              src={urlFor(img.image).width(1200).url()}
+              src={img.url}
               alt={img.title}
               className={Styles.galleryImage}
             />
@@ -38,7 +39,7 @@ const Gallery = () => {
       {images.length > 0 &&(
           <FsLightbox
             toggler={toggler}
-            sources={images.length>0? images.map((img) => urlFor(img.image).url()):[]}
+            sources={images.map((img) => img.url)}
             slide={slide}
           />
       )}

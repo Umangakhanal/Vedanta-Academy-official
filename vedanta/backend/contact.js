@@ -11,10 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 const client = createClient({
-  projectId: process.env.VITE_SANITY_PROJECT_ID,
-  dataset: process.env.VITE_SANITY_DATASET,
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
   useCdn: false,
-  token: process.env.VITE_SANITY_WRITE_TOKEN,
+  token: process.env.SANITY_WRITE_TOKEN,
   apiVersion: "2025-09-23",
 });
 
