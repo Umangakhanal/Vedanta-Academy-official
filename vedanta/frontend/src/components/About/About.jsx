@@ -15,15 +15,14 @@ const About = () => {
       FaAward: <FaAward size={30} color="var(--color-custom)" />,
       FaStar: <FaStar size={30} color="var(--color-custom)" />,
     };
-  // const [cards, setCards] = useState([]);
-  // useEffect(() => {
-  //   fetch(
-  //     "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/master/MissionVision.json"
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => setCards(data))
-  //     .catch((err) => console.error(err));
-  // }, []);
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    fetch(
+" http://localhost:5000/api/missionVision"    )
+      .then((res) => res.json())
+      .then((data) => setCards(data.result))
+      .catch((err) => console.error("Error fetching missionVision:",err));
+  }, []);
   const [stats, setStats] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/api/stats"    )
@@ -63,16 +62,22 @@ const About = () => {
           />
         </div>
       </div>
-      {/* <div className={Styles.cardsContainer}>
+      <div className={Styles.cardsContainer}>
         {cards.map((item) => {
           const IconComponent = iconMap[item.icon];
           return (
-            <div key={item.id} className={Styles.card}>
+            <div key={item._id} className={Styles.card}>
               <div
                 className={Styles.iconCircle}
-                style={{ backgroundColor: item.circleColor }}
+                style={{ backgroundColor: item.circleColor || "#eee" }}
               >
-                <IconComponent color={item.iconColor} size={30} />
+                {IconComponent ? (
+                  
+                  <IconComponent  color={item.iconColor} size={30} />    
+                ):(
+                  <FaBullseye size={30} color={item.iconColor} />
+                )
+              }
               </div>
               <div className={Styles.text}>
                 <h3>{item.title}</h3>
@@ -83,7 +88,7 @@ const About = () => {
             </div>
           );
         })}
-      </div> */}
+      </div>
       <div className={Styles.Achievements}>
         <div className={Styles.textcontainer}>
         <h2>Our Achievements</h2>
