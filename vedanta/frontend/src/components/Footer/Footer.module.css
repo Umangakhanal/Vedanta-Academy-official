@@ -14,14 +14,14 @@
 
 }
 .left{
-    margin-left: 40px;
+    margin-left: 45px;
     margin-top: 50px;
     width: 40%;
     display: flex;
     flex-direction: column;
     gap: 30px;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 .logoContainer{
     display: flex;
@@ -43,12 +43,19 @@
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif; */
     color: var(--color-custom);
+    
 }
 .left, .mid, .right p{
     /* font-size: 16px;
     font-weight: 300;
     font-family: Arial, Helvetica, sans-serif; */
     color: var(--color-custom);
+}
+.socials{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+
 }
 .mid{
     margin-top: 50px;
