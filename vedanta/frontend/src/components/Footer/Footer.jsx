@@ -85,15 +85,15 @@ const Footer = () => {
             <div className={Styles.info}>
               <div className={Styles.contact}>
                 <FaPhoneAlt size={16} color="var(--color-secondary)" />
-                <p>{contact.phone}</p>
+                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
               </div>
               <div className={Styles.contact}>
                 <FaEnvelope size={16} color="var(--color-secondary)" />
-                <p>{contact.email}</p>
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </div>
               <div className={Styles.contact}>
                 <FaMapMarkerAlt size={16} color="var(--color-secondary)" />
-                <p>{contact.address}</p>
+                <a href={`https://maps.app.goo.gl/MV1Sdgs1WABRpVob8`} target="_blank" rel="noreferrer">{contact.address}</a>
               </div>
             </div>
           </div>
