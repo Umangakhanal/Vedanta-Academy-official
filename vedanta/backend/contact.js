@@ -44,7 +44,9 @@ router.get('/contact-info',async(req, res)=>{
     email,
     address,
     socialLinks,
-    mapLink
+    mapLink,
+    officeHoursWeek,
+    officeHoursSat
     }`;
     const data = await client.fetch(query);
     res.json(data);
