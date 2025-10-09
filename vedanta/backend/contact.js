@@ -43,7 +43,8 @@ router.get('/contact-info',async(req, res)=>{
     phone,
     email,
     address,
-    socialLinks
+    socialLinks,
+    mapLink
     }`;
     const data = await client.fetch(query);
     res.json(data);

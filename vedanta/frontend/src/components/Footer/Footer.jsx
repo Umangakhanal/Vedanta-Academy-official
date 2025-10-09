@@ -93,7 +93,7 @@ const Footer = () => {
               </div>
               <div className={Styles.contact}>
                 <FaMapMarkerAlt size={16} color="var(--color-secondary)" />
-                <a href={`https://maps.app.goo.gl/MV1Sdgs1WABRpVob8`} target="_blank" rel="noreferrer">{contact.address}</a>
+                <a href={`${contact.mapLink}`} target="_blank" rel="noreferrer">{contact.address}</a>
               </div>
             </div>
           </div>
