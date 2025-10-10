@@ -8,7 +8,7 @@ export const client = createClient({
     dataset:process.env.SANITY_DATASET,
     token: process.env.SANITY_WRITE_TOKEN,
     useCdn: false,
-    apiVersion: "2023-01-01"
+    apiVersion: "2025-09-23",
 });
 
 const builder= imageUrlBuilder(client);

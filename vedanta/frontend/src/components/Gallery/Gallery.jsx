@@ -6,7 +6,7 @@ const Gallery = () => {
   const [toggler, setToggler] = useState(0);
   const[slide, setSlide]=useState(1);
   useEffect(() => {
-    fetch('http://localhost:5000/api/gallery')
+    fetch(`${import.meta.env.VITE_API_URL}/api/gallery`)
     .then((res)=> res.json())
     .then((data)=> setImages(data))
     .catch((err)=> console.error("Error fetching gallery:",err));

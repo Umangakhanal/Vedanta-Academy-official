@@ -1,8 +1,23 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
-import {FaPhoneAlt, FaEnvelope , FaMapMarkerAlt} from 'react-icons/fa';
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa";
 const Footer = () => {
+  const [contact, setContact] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/contact-info`)
+      .then((res) => res.json())
+      .then((data) => setContact(data))
+      .catch((err) => console.error("Error fetching contact info:", err));
+  }, []);
+  if (!contact) return null;
   return (
     <>
       <div className={Styles.main}>
@@ -14,11 +29,37 @@ const Footer = () => {
               </div>
               <h2>Vedanta Academy</h2>
             </div>
-            <p>
-              Empowering minds through comprehensive educational programs. We
-              specialize in handwriting improvement, public speaking, creative
-              writing, and innovative learning methodologies.
-            </p>
+            <p>{contact.description}</p>
+            {/*Social Media Icons */}
+            <div className={Styles.socials}>
+              {contact.socialLinks?.facebook && (
+                <a
+                  href={contact.socialLinks.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaFacebook size={30} color="var(--color-secondary)" />
+                </a>
+              )}
+              {contact.socialLinks?.instagram && (
+                <a
+                  href={contact.socialLinks.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaInstagram size={30} color="var(--color-secondary)" />
+                </a>
+              )}
+              {contact.socialLinks?.linkedin && (
+                <a
+                  href={contact.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedin size={30} color="var(--color-secondary)" />
+                </a>
+              )}
+            </div>
           </div>
           <div className={Styles.mid}>
             <h2> QUICK LINKS</h2>
@@ -40,26 +81,26 @@ const Footer = () => {
             </div>
           </div>
           <div className={Styles.right}>
-            <h2>CONTACT INFO</h2>
+            <h2>{contact.heading || "CONTACT INFO"}</h2>
             <div className={Styles.info}>
-                <div className={Styles.contact}>
-                    <FaPhoneAlt size={16} color="var(--color-secondary)"/>
-                    <p>+977 9812345670</p>
-                </div>
-                <div className={Styles.contact}>
-                    <FaEnvelope size={16} color="var(--color-secondary)"/>
-                    <p>info@vedanta.com</p>
-                </div>
-                <div className={Styles.contact}>
-                    <FaMapMarkerAlt size={16} color="var(--color-secondary)"/>
-                    <p>M9F6+X2W,Madhyapur Thimi</p>
-                </div>
+              <div className={Styles.contact}>
+                <FaPhoneAlt size={16} color="var(--color-secondary)" />
+                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+              </div>
+              <div className={Styles.contact}>
+                <FaEnvelope size={16} color="var(--color-secondary)" />
+                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </div>
+              <div className={Styles.contact}>
+                <FaMapMarkerAlt size={16} color="var(--color-secondary)" />
+                <a href={`${contact.mapLink}`} target="_blank" rel="noreferrer">{contact.address}</a>
+              </div>
             </div>
           </div>
         </div>
-       <div className={Styles.line}></div>
+        <div className={Styles.line}></div>
         <div className={Styles.bottom}>
-            <p>© 2025 Vedanta Academy. All rights reserved.</p>
+          <p>© 2025 Vedanta Academy. All rights reserved.</p>
         </div>
       </div>
     </>

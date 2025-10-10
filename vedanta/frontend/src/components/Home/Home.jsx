@@ -15,20 +15,20 @@ const Home = () => {
   const [stats, setStats] = useState([]);
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Stats.json"
+` ${import.meta.env.VITE_API_URL}/api/stats `
     )
       .then((res) => res.json())
-      .then((data) => setStats(data));
+      .then((data) => setStats(data))
+       .catch((err) => console.error("Error fetching stats:", err));
   }, []);
 
   const [programs, setPrograms] = useState([]);
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Program.json"
-    )
+`${import.meta.env.VITE_API_URL}/api/programs`    )
       .then((res) => res.json())
       .then((data) => setPrograms(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error fetching programs:",err));
   }, []);
   return (
     <>
@@ -70,9 +70,14 @@ const Home = () => {
         </div>
       </div>
       <div className={Styles.cardContainer}>
-        {stats.map((stat) => (
-          <div className={Styles.statCard} key={stat.id}>
-            <div className={Styles.icon}>{iconMap[stat.icon]}</div>
+        {stats.map((stat) => {
+          const icon = iconMap[stat.icon] ||<FaStar size={30} color="var(--color-primary)"/>;
+          return(
+
+          <div className={Styles.statCard} key={stat._id || stat.id}>
+            <div className={Styles.icon}>
+              {icon}
+              </div>
             <div className={Styles.data}>
               <h2>
                 <CountUp
@@ -86,8 +91,10 @@ const Home = () => {
               <p>{stat.label}</p>
             </div>
           </div>
-        ))}
+          );
+})}
       </div>
+      {/* Program section */}
       <div className={Styles.program}>
         <div className={Styles.text}>
           <h2>Our Training Programs</h2>
@@ -99,12 +106,12 @@ const Home = () => {
         <div className={Styles.cardsContainer}>
           {programs.map((program) => (
             <Card
-              key={program.id}
+              key={program._id || program.id}
               title={program.title}
               shortDesc={program.shortDesc}
               fullDesc={program.fullDesc}
               duration={program.duration}
-              image={program.image}
+              image={program.imageUrl}
               showFull={false}
               buttonText={'Learn More →'}
             />

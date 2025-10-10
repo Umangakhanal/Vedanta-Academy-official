@@ -1,18 +1,27 @@
-import React from "react";
 import Styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleLinkClick =()=>{
+    setIsOpen(false);
+  };
   return (
     <>
       <nav className={Styles.Navbar}>
         <div className={Styles.logo}>
           <img src="LOGO.png" alt="Vedanta Academy" />
         </div>
-        <div className={Styles.navlinks}>
+        <div className={Styles.hamburger} onClick={()=> setIsOpen(!isOpen)}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div className={`${Styles.navlinks} ${isOpen ? Styles.active:""}`}>
           <ul>
             <li>
               {" "}
-              <NavLink
+              <NavLink  onClick={handleLinkClick}
                 className={({ isActive }) =>
                   isActive ? `${Styles.link} ${Styles.activeLink}` : Styles.link
                 }
@@ -24,7 +33,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink
+              <NavLink onClick={handleLinkClick}
                 className={({ isActive }) =>
                   isActive ? `${Styles.link} ${Styles.activeLink}` : Styles.link
                 }
@@ -36,7 +45,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink
+              <NavLink onClick={handleLinkClick}
                 className={({ isActive }) =>
                   isActive ? `${Styles.link} ${Styles.activeLink}` : Styles.link
                 }
@@ -48,7 +57,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink
+              <NavLink onClick={handleLinkClick}
                 className={({ isActive }) =>
                   isActive ? `${Styles.link} ${Styles.activeLink}` : Styles.link
                 }
@@ -60,7 +69,7 @@ const Navbar = () => {
             </li>
             <li>
               {" "}
-              <NavLink
+              <NavLink onClick={handleLinkClick}
                 className={({ isActive }) =>
                   isActive ? `${Styles.link} ${Styles.activeLink}` : Styles.link
                 }

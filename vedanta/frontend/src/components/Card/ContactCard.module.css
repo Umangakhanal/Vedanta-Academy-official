@@ -8,9 +8,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   gap: 10px;
   padding: 20px;
+  width: 100%;
+  max-width: 500px;
 }
 .card h2{
     color: var(--color-primary);
+    text-align: center;
 }
 .item {
   display: flex;
@@ -19,20 +22,34 @@
   width: 100%;
 }
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   background-color: var(--color-primary);
   color: var(--color-custom);
-  font-size: x-large;
+  font-size: 1.5rem;
+  flex-shrink: 0;
 }
 .textArea h6 {
   color: var(--color-primary);
   font-weight: 700;
+  margin: 0;
 }
 .textArea p {
   color: var(--color-text);
+  margin: 0;
+}
+
+/* mobile responsive */
+@media (max-width: 768px){
+  .item{
+    gap: 12px;
+  }
+  .icon{
+    width: 45px;
+    font-size: 1.3rem;
+  }
 }

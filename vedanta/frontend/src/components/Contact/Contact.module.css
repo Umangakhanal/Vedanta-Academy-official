@@ -10,12 +10,13 @@
   color: var(--color-custom);
   width: 600px;
   height: 200px;
+  max-width: 90%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   padding: 10px;
 }
 .textContainer p{
@@ -26,16 +27,56 @@
   padding: 20px;
   display: flex;
   justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .contactForm{
   width: 60%;
+  min-width: 300px;
   
 }
 .contactInfo{
   width: 35%;
-  
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   
+}
+.contactInfo .icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactInfo .icon:hover{
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+/* Mobile responsive */
+
+@media (max-width:768px){
+  .heroContainer{
+    height: auto;
+    padding: 20px 10px;
+  }
+  .textContainer{
+    width: 100%;
+    height: auto;
+    gap: 15px;
+  }
+  .formpart{
+    padding: 15px 10px;
+  }
+  .contactForm, .contactInfo{
+    width: 100%;
+  }
+  .contactInfo{
+    flex-direction: column;
+    gap: 15px;
+  }
 }

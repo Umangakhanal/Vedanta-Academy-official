@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./ContactCard.module.css";
 import { FaRegEnvelope, FaRegClock } from "react-icons/fa";
 import { HiOutlineMapPin, HiOutlinePhone } from "react-icons/hi2";
 
 const ContactCard = () => {
+  const [contact, setContact] =useState(null);
+
+  useEffect(()=>{
+    fetch(`${import.meta.env.VITE_API_URL}/api/contact-info`)
+    .then((res)=> res.json())
+    .then((data)=> setContact(data))
+    .catch((err)=> console.error("Error fetching contact info:", err))
+  },[]);
+  if (!contact) return null;
   return (
     <>
       <div className={Styles.card}>
@@ -15,7 +24,7 @@ const ContactCard = () => {
           </div>
           <div className={Styles.textArea}>
             <h6>Phone</h6>
-            <p>+977 9812345678</p>
+            <p>{contact.phone}</p>
             <p>Call us for immediate assistance</p>
           </div>
         </div>
@@ -26,7 +35,7 @@ const ContactCard = () => {
           </div>
           <div className={Styles.textArea}>
             <h6>Email</h6>
-            <p>info@vedantaacademy</p>
+            <p>{contact.email}</p>
             <p>Send us your queries anytime</p>
           </div>
         </div>
@@ -37,7 +46,7 @@ const ContactCard = () => {
           </div>
           <div className={Styles.textArea}>
             <h6>Address</h6>
-            <p>M9F6+X2W, Madhyapur Thimi 44600</p>
+            <p>{contact.address}</p>
             <p>Visit Us</p>
           </div>
         </div>
@@ -47,8 +56,8 @@ const ContactCard = () => {
           </div>
           <div className={Styles.textArea}>
             <h6>Office Hours</h6>
-            <p>Sun - Fri : 10:00AM - 5:00PM</p>
-            <p>Saturday : Closed</p>
+            <p>{contact.officeHoursWeek}</p>
+            <p>{contact.officeHoursSat}</p>
           </div>
         </div>
       </div>

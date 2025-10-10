@@ -2,7 +2,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
@@ -11,9 +11,11 @@ form {
 }
 .title{
   color: var(--color-primary);
+  text-align: center;
 }
 .contact{
   color: var(--color-text);
+  text-align: center;
 }
 .formGroup p , label , select, option{
   color: var(--color-text);
@@ -77,4 +79,18 @@ form {
 }
 .SubmitBtn:hover {
   background-color: var(--color-secondary);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px){
+  form{
+    padding: 15px;
+  }
+  .infoContainer{
+    flex-direction: column;
+    gap: 15px;
+  }
+  .formGroup{
+    width: 100%;
+  }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import  { useEffect, useState } from "react";
 import Styles from "./QuickAction.module.css";
 import {
   HiOutlinePhone,
@@ -6,31 +6,41 @@ import {
   HiOutlineMapPin,
 } from "react-icons/hi2";
 const QuickAction = () => {
-  const phoneNumber = "+9779812345678";
-  const email = "info@vedantaacademy.com";
-  const address = "https://maps.app.goo.gl/aZqCL1sfo9DZ8YqcA";
+ const [contact, setContact]= useState(null );
+
+ useEffect(()=>{
+  fetch(`${import.meta.env.VITE_API_URL}/api/contact-info`)
+  .then(res => res.json())
+  .then(data => {
+      console.log(data); 
+      setContact(data);
+    })
+  .catch(err => console.error( "Error fetching contact info :",err));
+ }, []);
+
+ if (!contact) return null;
 
   return (
     <>
       <div className={Styles.card}>
         <h5>Quick Actions</h5>
         <div className={Styles.actions}>
-          <a href={`tel:${phoneNumber}`}>
+          <a href={`tel:${contact.phone }`}>
             <div className={Styles.container}>
-              <HiOutlinePhone />
+              <HiOutlinePhone/>
               <span>Call Now</span>
             </div>
           </a>
-          <a href={`mailto:${email}`}>
+          <a href={`mailto:${contact.email}`}>
             <div className={Styles.container}>
-              <HiOutlineEnvelope />
+              <HiOutlineEnvelope/>
 
               <span>Send Mail</span>
             </div>
           </a>
-          <a href={address} target="_blank" rel="noopener noreferrer">
+          <a href={`${contact.mapLink}`} target="_blank" rel="noopener noreferrer">
             <div className={Styles.container}>
-              <HiOutlineMapPin />
+              <HiOutlineMapPin/>
 
               <span>Get Directions</span>
             </div>

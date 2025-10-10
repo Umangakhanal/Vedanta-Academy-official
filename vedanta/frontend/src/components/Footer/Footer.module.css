@@ -14,14 +14,14 @@
 
 }
 .left{
-    margin-left: 40px;
+    margin-left: 45px;
     margin-top: 50px;
     width: 40%;
     display: flex;
     flex-direction: column;
     gap: 30px;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 }
 .logoContainer{
     display: flex;
@@ -43,12 +43,19 @@
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif; */
     color: var(--color-custom);
+    
 }
 .left, .mid, .right p{
     /* font-size: 16px;
     font-weight: 300;
     font-family: Arial, Helvetica, sans-serif; */
     color: var(--color-custom);
+}
+.socials{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+
 }
 .mid{
     margin-top: 50px;
@@ -84,7 +91,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin-right: 40px;
 }
 .info{
@@ -93,11 +100,28 @@
     gap: 10px;
     justify-content: center;
     align-items: baseline;
+    text-align: justify;
 }
 .contact{
     display: flex;
+    align-items: flex-start;
     gap: 10px;
+    text-align: left;
 
+}
+.contact a{
+    word-wrap: break-word;
+    overflow-wrap:break-word ;
+    max-width: 150px;
+    line-height: 1.5;
+}
+.info a{
+    text-decoration: none;
+    color: var(--color-custom);
+    transition: 0.3s;
+}
+.info a:hover{
+    color: var(--color-secondary);
 }
 .bottom{
     display: flex;
@@ -121,5 +145,52 @@
     width: 90%;
     border: 1px solid var(--color-text);
     margin-top: 30px;
+    
+}
+@media (max-width: 768px){
+    .main{
+        height: auto;
+        padding: 20px 10px;
+    }
+    .top{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .left, .mid, .right{
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    .logoContainer{
+        justify-content: center;
+    }
+    .socials{
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    .mid ul{
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+    .links li{
+        list-style: none;
+    }
+    .right .info{
+        gap: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+    .bottom{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .line{
+        width: 100%;
+    }
     
 }
