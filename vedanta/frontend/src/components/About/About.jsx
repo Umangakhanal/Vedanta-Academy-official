@@ -3,6 +3,7 @@ import Styles from "./About.module.css";
 import { FaBullseye, FaRegLightbulb } from "react-icons/fa6";
 import CountUp from "react-countup";
 import { FaUsers, FaBookOpen, FaAward,FaStar  } from "react-icons/fa6";
+import Staff from "./Staff";
 
 const About = () => {
   const iconMap = {
@@ -121,6 +122,7 @@ const About = () => {
 })}
         </div>
       </div>
+      <Staff/>
     </>
   );
 };

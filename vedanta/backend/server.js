@@ -7,6 +7,8 @@ import statsRouter from './stats.js';
 import programsRouter from './programs.js';
 import missionVision from './missionVision.js';
 import contactRouter from './contact.js';
+import staffRoutes from './staff.js';
+
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -14,6 +16,7 @@ app.use(express.json());
 app.use('/api',contactRouter);
 app.use('/api', missionVision);
 app.use('/api',galleryRouter);
+app.use('/api',staffRoutes);
 app.use('/api', statsRouter);
 app.use('/api',programsRouter);
 app.post("/api/contact", async (req, res) => {
