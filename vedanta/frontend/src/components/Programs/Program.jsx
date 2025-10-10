@@ -17,11 +17,10 @@ const Program = () => {
   const [programs, setPrograms] = useState([]);
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/Umangakhanal/Vedanta-Academy/refs/heads/master/Program.json"
-    )
+`${import.meta.env.VITE_API_URL}/api/programs`    )
       .then((res) => res.json())
       .then((data) => setPrograms(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error fetching programs:",err));
   }, []);
   return (
     <>
@@ -48,12 +47,12 @@ const Program = () => {
         <div className={Styles.cardsContainer}>
           {programs.map((program) => (
             <Card
-              key={program.id}
+              key={program._id|| program.id}
               title={program.title}
               shortDesc={program.shortDesc}
               fullDesc={program.fullDesc}
               duration={program.duration}
-              image={program.image}
+              image={program.imageUrl}
               showFull={true}
               buttonText={"Enroll Now"}
             />
