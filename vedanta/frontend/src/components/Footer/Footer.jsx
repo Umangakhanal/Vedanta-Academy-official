@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Styles from "./Footer.module.css";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   const [contact, setContact] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/api/contact-info")
+    fetch(`${import.meta.env.VITE_API_URL}/api/contact-info`)
       .then((res) => res.json())
       .then((data) => setContact(data))
       .catch((err) => console.error("Error fetching contact info:", err));

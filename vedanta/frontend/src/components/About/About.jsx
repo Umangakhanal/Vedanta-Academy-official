@@ -18,14 +18,14 @@ const About = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
     fetch(
-" http://localhost:5000/api/missionVision"    )
+` ${import.meta.env.VITE_API_URL}/api/missionVision`    )
       .then((res) => res.json())
       .then((data) => setCards(data.result))
       .catch((err) => console.error("Error fetching missionVision:",err));
   }, []);
   const [stats, setStats] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/stats"    )
+    fetch(`${import.meta.env.VITE_API_URL}/api/stats`    )
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err)=> console.error("Error fetching stats:", err));

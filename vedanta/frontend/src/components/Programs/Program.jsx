@@ -17,7 +17,7 @@ const Program = () => {
   const [programs, setPrograms] = useState([]);
   useEffect(() => {
     fetch(
-"http://localhost:5000/api/programs"    )
+`${import.meta.env.VITE_API_URL}/api/programs`    )
       .then((res) => res.json())
       .then((data) => setPrograms(data))
       .catch((err) => console.log("Error fetching programs:",err));
