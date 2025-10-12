@@ -5,18 +5,18 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node contact.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@sanity/client": "^7.11.2",
+    "@sanity/client": "^7.12.0",
     "@sanity/image-url": "^1.2.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.3",
     "emailjs": "^4.0.3",
     "express": "^5.1.0"
   }
