@@ -5,18 +5,18 @@ const Staff =()=>{
     const [staffs, setStaffs]=useState([]);
 
     const rolePriority = {
-        head: 1,
-        "department head":2,
-        supervisor: 3,
-        worker:4,
+        Head: 1,
+        "Department Head":2,
+        Supervisor: 3,
+        Employee:4,
     };
     useEffect(()=>{
         fetch(`${import.meta.env.VITE_API_URL}/api/staff`)
         .then((res)=> res.json())
         .then((data)=>{
             const sortedStaff= data.result.sort((a,b)=>{
-                const roleA = rolePriority[a.role.toLowerCase()] || 99;
-                const roleB = rolePriority[b.role.toLowerCase()] || 99;
+                const roleA = rolePriority[a.role] || 99;
+                const roleB = rolePriority[b.role] || 99;
                 return roleA-roleB;
             });
             setStaffs(sortedStaff);
