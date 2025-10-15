@@ -6,10 +6,10 @@ const router = express.Router();
 
 //Role priority for sorting
 const rolePriority ={
-    head:1,
-    departmentHead:2,
-    supervisor:3,
-    worker:4,
+    Head:1,
+    "Department Head":2,
+    Supervisor:3,
+    Employee:4,
 };
 router.get('/staff', async(req, res)=>{
     try{
