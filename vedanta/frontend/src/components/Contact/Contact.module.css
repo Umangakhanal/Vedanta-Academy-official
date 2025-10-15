@@ -31,12 +31,12 @@
   flex-wrap: wrap;
 }
 .contactForm{
-  width: 60%;
+  width:  1 1 60%;
   min-width: 300px;
   
 }
 .contactInfo{
-  width: 35%;
+  width:1 1 35%;
   min-width: 250px;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,8 @@
     width: 100%;
   }
   .contactInfo{
+    flex-wrap: wrap;
+    justify-content: center;
     flex-direction: column;
     gap: 15px;
   }
