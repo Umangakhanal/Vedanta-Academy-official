@@ -7,7 +7,7 @@ import {
   FaMapMarkerAlt,
   FaFacebook,
   FaInstagram,
-  FaLinkedin,
+  FaTiktok,
 } from "react-icons/fa";
 const Footer = () => {
   const [contact, setContact] = useState(null);
@@ -50,13 +50,13 @@ const Footer = () => {
                   <FaInstagram size={30} color="var(--color-secondary)" />
                 </a>
               )}
-              {contact.socialLinks?.linkedin && (
+              {contact.socialLinks?.tiktok && (
                 <a
-                  href={contact.socialLinks.linkedin}
+                  href={contact.socialLinks.tiktok}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FaLinkedin size={30} color="var(--color-secondary)" />
+                  <FaTiktok size={30} color="var(--color-secondary)" />
                 </a>
               )}
             </div>
