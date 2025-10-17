@@ -16,7 +16,7 @@ body{
 .textContainer {
   color: var(--color-custom);
 height: 200px;
-  max-width: 90%;
+  max-width: 60%;
   text-align: center;
   display: flex;
   flex-direction: column;
