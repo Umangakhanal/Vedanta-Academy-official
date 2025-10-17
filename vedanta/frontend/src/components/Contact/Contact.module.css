@@ -1,15 +1,21 @@
+body{
+  overflow-x: hidden;
+}
 .heroContainer {
+  width: 100vw;
+  margin: 0;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
   background-color: var(--color-primary);
+  min-height: 400px;
+  box-sizing: border-box;
 }
 .textContainer {
   color: var(--color-custom);
-  width: 600px;
-  height: 200px;
+height: 200px;
   max-width: 90%;
   text-align: center;
   display: flex;
@@ -31,12 +37,12 @@
   flex-wrap: wrap;
 }
 .contactForm{
-  width:  1 1 60%;
+  width:   60%;
   min-width: 300px;
   
 }
 .contactInfo{
-  width:1 1 35%;
+  width: 35%;
   min-width: 250px;
   display: flex;
   flex-direction: column;
@@ -59,15 +65,17 @@
 
 /* Mobile responsive */
 
-@media (max-width:768px){
+@media (max-width:768px ){
   .heroContainer{
     height: auto;
     padding: 20px 10px;
+    
   }
   .textContainer{
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     gap: 15px;
+    width: 100vw;
   }
   .formpart{
     padding: 15px 10px;
