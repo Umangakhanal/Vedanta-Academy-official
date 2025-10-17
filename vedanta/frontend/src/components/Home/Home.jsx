@@ -65,8 +65,8 @@ const Home = () => {
           </div>
         </div>
         <div className={Styles.buttons}>
-          <button className={Styles.btn1}>Explore Programs &#10140; </button>
-          <button className={Styles.btn2}>Contact us </button>
+          <button className={Styles.btn1} onClick={()=> navigate("/programs")}>Explore Programs &#10140; </button>
+          <button className={Styles.btn2} onClick={()=> navigate("/contact")}>Contact us </button>
         </div>
       </div>
       <div className={Styles.cardContainer}>

@@ -1,7 +1,7 @@
 @import './../../index.css';
 .main{
     background-color: var(--color-heading);
-    height: 350px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
