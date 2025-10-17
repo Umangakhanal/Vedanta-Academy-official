@@ -9,6 +9,7 @@ const Card = ({
   image,
   showFull,
   buttonText,
+  keyBenefits,
 }) => {
   const navigate = useNavigate();
 
@@ -29,6 +30,11 @@ const Card = ({
         <div className={Styles.content}>
           <h3>{title}</h3>
           <p>{showFull ? fullDesc : shortDesc}</p>
+          {showFull && (
+            <p className={Styles.keyBenefits}>
+              <strong>Key Benefits:</strong>{keyBenefits}
+            </p>
+          )}
           <p className={Styles.duration}>
             <strong>Duration:</strong> {duration}
           </p>
