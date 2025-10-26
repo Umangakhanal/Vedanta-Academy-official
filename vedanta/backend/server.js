@@ -9,11 +9,13 @@ import missionVision from './missionVision.js';
 import contactRouter from './contact.js';
 import staffRoutes from './staff.js';
 import aboutRoutes from "./about.js";
+import homeRoutes from "./home.js";
 
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api',homeRoutes);
 app.use('/api',aboutRoutes);
 app.use('/api',contactRouter);
 app.use('/api', missionVision);

@@ -3,56 +3,53 @@ import CountUp from "react-countup";
 import { useEffect, useState } from "react";
 import { FaUsers, FaBookOpen, FaAward, FaStar } from "react-icons/fa";
 import Card from "../Card/Card";
-import {useNavigate} from 'react-router-dom' 
+import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const iconMap = {
     FaUsers: <FaUsers size={30} color="var(--color-custom)" />,
     FaBookOpen: <FaBookOpen size={30} color="var(--color-custom)" />,
     FaAward: <FaAward size={30} color="var(--color-custom)" />,
     FaStar: <FaStar size={30} color="var(--color-custom)" />,
   };
+  const [heroData, setHeroData] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/home`)
+      .then((res) => res.json())
+      .then((data) => setHeroData(data.result[0]))
+      .catch((err) => console.error("Error fetching hero data:", err));
+  }, []);
   const [stats, setStats] = useState([]);
   useEffect(() => {
-    fetch(
-` ${import.meta.env.VITE_API_URL}/api/stats `
-    )
-      .then((res) => res.json())
-      .then((data) => setStats(data))
-       .catch((err) => console.error("Error fetching stats:", err));
+    fetch(` ${import.meta.env.VITE_API_URL}/api/stats `)
+    .then((res) => res.json())
+    .then((data) => setStats(data))
+    .catch((err) => console.error("Error fetching stats:", err));
   }, []);
-
+  
   const [programs, setPrograms] = useState([]);
   useEffect(() => {
-    fetch(
-`${import.meta.env.VITE_API_URL}/api/programs`    )
-      .then((res) => res.json())
-      .then((data) => setPrograms(data))
-      .catch((err) => console.log("Error fetching programs:",err));
+    fetch(`${import.meta.env.VITE_API_URL}/api/programs`)
+    .then((res) => res.json())
+    .then((data) => setPrograms(data))
+    .catch((err) => console.log("Error fetching programs:", err));
   }, []);
+  if (!heroData) return <p>Loading...</p>;
   return (
     <>
-      <div className={Styles.main}>
-        <div className={Styles.container}>
-          <div className={Styles.textcontainer}>
+      <div
+        className={Styles.main}      >
+        <div className={Styles.container} >
+          <div className={Styles.textcontainer}  style={{
+          backgroundImage: heroData.heroImage ? `url(${heroData.heroImage})`:"none",
+          backgroundSize: "fill",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}>
             <h1>
-               <span>Vedanta Academy</span>
+              <span>{heroData.heroTitle}</span>
             </h1>
-            <p>
-              At Vedanta Academy, we believe education goes beyond textbooks.
-              For the past 9+ years, we have been transforming classrooms with
-              our handwriting training programs in both English and
-              Nepali—helping more than 100,000 students and 10,000 teachers
-              across 300+ schools, 16 districts, and 2 countries. Today, we
-              extend our expertise into essential 21st Century Skills—public
-              speaking, creative writing, problem solving, and
-              entrepreneurship—because we believe every student should not only
-              write with clarity but also express creatively, speak with
-              confidence, think critically, and act responsibly. With a team of
-              30 dedicated educators, currently serving 75+ schools, we continue
-              to grow as a trusted partner in education, nurturing skills that
-              truly prepare students for life.
-            </p>
+            <p>{heroData.content}</p>
           </div>
           <div className={Styles.card}>
             <h3>Why Choose Vedanta Academy?</h3>
@@ -65,34 +62,37 @@ const Home = () => {
           </div>
         </div>
         <div className={Styles.buttons}>
-          <button className={Styles.btn1} onClick={()=> navigate("/programs")}>Explore Programs &#10140; </button>
-          <button className={Styles.btn2} onClick={()=> navigate("/contact")}>Contact us </button>
+          <button className={Styles.btn1} onClick={() => navigate("/programs")}>
+            Explore Programs &#10140;{" "}
+          </button>
+          <button className={Styles.btn2} onClick={() => navigate("/contact")}>
+            Contact us{" "}
+          </button>
         </div>
       </div>
       <div className={Styles.cardContainer}>
         {stats.map((stat) => {
-          const icon = iconMap[stat.icon] ||<FaStar size={30} color="var(--color-primary)"/>;
-          return(
-
-          <div className={Styles.statCard} key={stat._id || stat.id}>
-            <div className={Styles.icon}>
-              {icon}
-              </div>
-            <div className={Styles.data}>
-              <h2>
-                <CountUp
-                  end={stat.number}
-                  duration={2.5}
-                  enableScrollSpy
-                  scrollSpyOnce
-                />
-                {stat.suffix}
-              </h2>
-              <p>{stat.label}</p>
-            </div>
-          </div>
+          const icon = iconMap[stat.icon] || (
+            <FaStar size={30} color="var(--color-primary)" />
           );
-})}
+          return (
+            <div className={Styles.statCard} key={stat._id || stat.id}>
+              <div className={Styles.icon}>{icon}</div>
+              <div className={Styles.data}>
+                <h2>
+                  <CountUp
+                    end={stat.number}
+                    duration={2.5}
+                    enableScrollSpy
+                    scrollSpyOnce
+                  />
+                  {stat.suffix}
+                </h2>
+                <p>{stat.label}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
       {/* Program section */}
       <div className={Styles.program}>
@@ -113,11 +113,13 @@ const Home = () => {
               duration={program.duration}
               image={program.imageUrl}
               showFull={false}
-              buttonText={'Learn More →'}
+              buttonText={"Learn More →"}
             />
           ))}
         </div>
-        <button onClick={()=> navigate("/programs")}>View All Programs &#10140;</button>
+        <button onClick={() => navigate("/programs")}>
+          View All Programs &#10140;
+        </button>
       </div>
     </>
   );
