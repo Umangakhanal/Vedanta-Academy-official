@@ -1,11 +1,16 @@
 import Styles from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleLinkClick =()=>{
     setIsOpen(false);
   };
+  const navigate = useNavigate();
+  const handleButtonClick=()=>{
+    handleLinkClick();
+    navigate('/programs');
+  }
   return (
     <>
       <nav className={Styles.Navbar}>
@@ -82,7 +87,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={Styles.navButton}>
-          <button className={Styles.button}>Sign in </button>
+          <button onClick={handleButtonClick}  className={Styles.button}>Get Started</button>
         </div>
       </nav>
     </>
