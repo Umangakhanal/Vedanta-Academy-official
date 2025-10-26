@@ -3,14 +3,12 @@
   text-align: center;
   background: #fafafa;
 }
-
 .heading {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 40px;
   color: #222;
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -18,7 +16,6 @@
   justify-items: center;
   align-items: stretch;
 }
-
 .card {
   background: white;
   border-radius: 16px;
@@ -32,12 +29,10 @@
   height: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
-
 .imageWrapper img {
   width: 120px;
   height: 120px;
@@ -45,23 +40,19 @@
   object-fit: cover;
   margin-bottom: 10px;
 }
-
 .name {
   font-weight: 600;
   font-size: 1.1rem;
 }
-
 .role {
   color: #666;
   font-size: 0.9rem;
 }
-
 .department {
   font-size: 0.9rem;
   font-weight: 500;
   color: #007bff;
 }
-
 .bio {
   font-size: 0.85rem;
   color: #444;
@@ -71,40 +62,40 @@
 
 /* tablet responsive */
 
-@media(max-width:768px) and (min-width:429px){
-    .grid{
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
+@media (max-width: 768px) and (min-width: 429px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
 }
 /* mobile responsive */
-@media (max-width:428px){
-    .grid{
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0,10px;
-    }
-    .card{
-        max-width: 100%;
-        padding: 15px;
-    }
-    .imageWrapper{
-        width: 100px;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto 10px;
-    }
-    .card img{
-        display: block;
-    }
-    .heading{
-        font-size: 1.6rem;
-    }
-    .name{
-        font-size: 1rem;
-    }
-    .role,
+@media (max-width: 428px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0, 10px;
+  }
+  .card {
+    max-width: 100%;
+    padding: 15px;
+  }
+  .imageWrapper {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+  .card img {
+    display: block;
+  }
+  .heading {
+    font-size: 1.6rem;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  .role,
   .department,
   .bio {
     font-size: 0.85rem;
