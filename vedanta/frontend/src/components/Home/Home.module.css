@@ -22,7 +22,7 @@
 .textcontainer h1 {
   /* font-size:48px;
     font-weight: 800; */
-  /* color: var(--color-custom); */
+  color: var(--color-custom);
   /* font-family: Arial, Helvetica, sans-serif; */
 }
 .textcontainer {
